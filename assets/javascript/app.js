@@ -27,7 +27,7 @@ $(document).ready(function () {
 
 
     //When clicking the buttons do the following
-    $("#buttons").on("click", "button", function () {
+    $("#buttons").on("click", ".categories", function () {
 
         //hide the instructions and categories
         $("#instructions").hide();
@@ -36,7 +36,7 @@ $(document).ready(function () {
 
         var done = $("<button>").text("Done!");
         done.addClass("col-3 col-lg-3 d-inline btn btn-primary");
-        done.attr("id","done-button")
+        done.attr("id", "done-button")
 
         $("#done").append(done);
 
@@ -45,14 +45,16 @@ $(document).ready(function () {
 
         function decrement() {
 
+            $("#time").text("Time remaining: " + time + " seconds");
             time--;
 
-            $("#time").text("Time remaining: " + time + " seconds");
-
             if (time === 0) {
-                $(".questions").remove();
+                $(".questions").empty();
                 $("#done-button").remove();
+                $("#message-is-it-correct").empty();
+                $("#message").empty();
                 $("#time").hide();
+                clearInterval(intervalId);
 
 
                 var finalMessage = $("<div>");
@@ -85,13 +87,13 @@ $(document).ready(function () {
                 finalMessage.append(percentage);
                 finalMessage.append(retry);
 
-                $("#trivia").html(finalMessage);
+                $("#try-again").html(finalMessage);
             }
         }
         //get the category selected and see its index in categoryOptions
-        var categorySelected = $(this).attr("id");
+        let categorySelected = $(this).attr("id");
         console.log(categorySelected);
-        var indexCategorySelected = categoryOptions.indexOf(categorySelected);
+        let indexCategorySelected = categoryOptions.indexOf(categorySelected);
         console.log(indexCategorySelected);
 
         var correctAnswers = 0;
@@ -113,16 +115,16 @@ $(document).ready(function () {
             optionsDiv.attr("id", "options-question-" + (i + 1));
 
             var option1 = $("<button>").text(possibleAnswers[indexCategorySelected][i][0]);
-            option1.addClass("col-xl-3 col-lg-6 col-md-12 col-sm-12 col-12 d-inline btn btn-outline-primary");
+            option1.addClass("answer-button col-xl-3 col-lg-6 col-md-12 col-sm-12 col-12 d-inline btn btn-outline-primary");
             option1.attr("id", (i + 1));
             var option2 = $("<button>").text(possibleAnswers[indexCategorySelected][i][1]);
-            option2.addClass("col-xl-3 col-lg-6 col-md-12 col-sm-12 col-12 d-inline btn btn-outline-primary");
+            option2.addClass("answer-button col-xl-3 col-lg-6 col-md-12 col-sm-12 col-12 d-inline btn btn-outline-primary");
             option2.attr("id", (i + 1));
             var option3 = $("<button>").text(possibleAnswers[indexCategorySelected][i][2]);
-            option3.addClass("col-xl-3 col-lg-6 col-md-12 col-sm-12 col-12 d-inline btn btn-outline-primary");
+            option3.addClass("answer-button col-xl-3 col-lg-6 col-md-12 col-sm-12 col-12 d-inline btn btn-outline-primary");
             option3.attr("id", (i + 1));
             var option4 = $("<button>").text(possibleAnswers[indexCategorySelected][i][3]);
-            option4.addClass("col-xl-3 col-lg-6 col-md-12 col-sm-12 col-12 d-inline btn btn-outline-primary");
+            option4.addClass("answer-button col-xl-3 col-lg-6 col-md-12 col-sm-12 col-12 d-inline btn btn-outline-primary");
             option4.attr("id", (i + 1));
 
             optionsDiv.append(option1);
@@ -138,7 +140,7 @@ $(document).ready(function () {
 
         }
 
-        $("#trivia").on("click", "button", function () {
+        $("#trivia").on("click", ".answer-button", function () {
 
 
             var chosenAnswer = $(this).text();
@@ -156,11 +158,13 @@ $(document).ready(function () {
                 isItCorrect = "Correct!";
                 correctAnswers++;
                 console.log(correctAnswers);
+                console.log(incorrectAnswers);
                 unansweredquestions--;
                 console.log(unansweredquestions);
             } else {
                 isItCorrect = "Wrong!";
                 incorrectAnswers++;
+                console.log(correctAnswers);
                 console.log(incorrectAnswers);
                 unansweredquestions--;
                 console.log(unansweredquestions);
@@ -190,8 +194,10 @@ $(document).ready(function () {
 
         $("#done").on("click", "button", function () {
 
-            $(".questions").remove();
+            $(".questions").empty();
             $("#done-button").remove();
+            $("#message-is-it-correct").empty();
+            $("#message").empty();
             $("#time").hide();
             clearInterval(intervalId);
 
@@ -221,17 +227,20 @@ $(document).ready(function () {
             finalMessage.append(percentage);
             finalMessage.append(retry);
 
-            $("#trivia").html(finalMessage);
+            $("#try-again").html(finalMessage);
 
 
         });
 
-        $("#trivia").on("click", "#retry", function () {
+        $("#try-again").on("click", "#retry", function () {
 
             $(".final-message").remove();
+            $("#message-is-it-correct").empty();
+            $("#message").empty();
             $("#instructions").show();
             $("#buttons").show();
 
+           
 
 
         });
