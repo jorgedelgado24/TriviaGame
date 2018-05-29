@@ -1,0 +1,127 @@
+a {
+    color: #777777;
+}
+
+.pageContent {
+    background-image: url(../images/circles-light.png);
+}
+
+#myName {
+    color: #ffffff;
+    background-color: #4aaaa5;
+    font-size: 28px;
+    border-color: #fff;
+}
+
+/*
+Trivia Game CSS
+*/
+
+.btn.btn-secondary {
+    background-color: #FFA500;
+    border-color: #FFA500;
+}
+
+#buttons {
+    margin: 60px 0px;
+}
+
+.options {
+    margin-bottom: 30px;
+}
+
+#message {
+    color: black;
+    font-size: 12px;
+}
+
+#message-is-it-correct {
+    color: black;
+    font-size: 16px;
+}
+
+#time {
+    color: black;
+    font-size: 20px;
+}
+
+#times-up {
+    color: red;
+    font-size: 25px;
+}
+
+/*
+Ends Trivia Game CSS
+*/
+
+#navButtons {
+    text-align: end;
+}
+
+#aboutMe {
+    background-color: #fff;
+    color: #777777;
+    border-color: #fff;
+}
+
+#portfolio {
+    background-color: #fff;
+    color: #777777;
+    border-color: #fff;
+}
+
+#contact {
+    background-color: #fff;
+    color: #777777;
+    border-color: #fff;
+    padding: 3%;
+}
+
+#games {
+    background-image: url(images/Digital-gaming.jpg);
+    background-size: cover;
+    padding: 3%;
+    margin: 4% 1% 0% 0%;
+}
+
+#friends {
+    background-image: url(images/friends.jpg);
+    background-size: cover;
+    padding: 3%;
+    margin: 4% 1% 0% 0%;
+}
+
+#sports {
+    background-image: url(images/sports.jpg);
+    background-size: cover;
+    padding: 3%;
+    margin: 4% 1% 0% 0%;
+}
+
+#triathlon {
+    background-image: url(images/triathlon.jpg);
+    background-size: cover;
+    padding: 3%;
+    margin: 4% 1% 0% 0%;
+}
+
+#wedding {
+    background-image: url(images/wedding.jpg);
+    background-size: cover;
+    padding: 3%;
+    margin: 4% 1% 0% 0%;
+}
+
+
+
+@media screen and (max-width: 768px) {
+
+#navMyName {
+    text-align: center;
+}
+
+#navButtons {
+    text-align: center;
+}
+
+}
