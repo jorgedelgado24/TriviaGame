@@ -27,7 +27,7 @@ $(document).ready(function () {
 
 
     //When clicking the buttons do the following
-    $("#buttons").on("click", ".categories", function () {
+    $("#buttons").unbind().on("click", ".categories", function () {
 
         //hide the instructions and categories
         $("#instructions").hide();
@@ -49,10 +49,8 @@ $(document).ready(function () {
             time--;
 
             if (time === 0) {
-                $(".questions").empty();
+                $(".questions").remove();
                 $("#done-button").remove();
-                $("#message-is-it-correct").empty();
-                $("#message").empty();
                 $("#time").hide();
                 clearInterval(intervalId);
 
@@ -91,9 +89,9 @@ $(document).ready(function () {
             }
         }
         //get the category selected and see its index in categoryOptions
-        let categorySelected = $(this).attr("id");
+        var categorySelected = $(this).attr("id");
         console.log(categorySelected);
-        let indexCategorySelected = categoryOptions.indexOf(categorySelected);
+        var indexCategorySelected = categoryOptions.indexOf(categorySelected);
         console.log(indexCategorySelected);
 
         var correctAnswers = 0;
@@ -140,7 +138,7 @@ $(document).ready(function () {
 
         }
 
-        $("#trivia").on("click", ".answer-button", function () {
+        $("#trivia").unbind().on("click", ".answer-button", function () {
 
 
             var chosenAnswer = $(this).text();
@@ -194,10 +192,8 @@ $(document).ready(function () {
 
         $("#done").on("click", "button", function () {
 
-            $(".questions").empty();
+            $(".questions").remove();
             $("#done-button").remove();
-            $("#message-is-it-correct").empty();
-            $("#message").empty();
             $("#time").hide();
             clearInterval(intervalId);
 
@@ -235,12 +231,10 @@ $(document).ready(function () {
         $("#try-again").on("click", "#retry", function () {
 
             $(".final-message").remove();
-            $("#message-is-it-correct").empty();
-            $("#message").empty();
             $("#instructions").show();
             $("#buttons").show();
 
-           
+            
 
 
         });
