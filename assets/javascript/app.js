@@ -113,16 +113,16 @@ $(document).ready(function () {
             optionsDiv.attr("id", "options-question-" + (i + 1));
 
             var option1 = $("<button>").text(possibleAnswers[indexCategorySelected][i][0]);
-            option1.addClass("col-3 col-lg-3 d-inline btn btn-outline-primary");
+            option1.addClass("col-xl-3 col-lg-6 col-md-12 col-sm-12 col-12 d-inline btn btn-outline-primary");
             option1.attr("id", (i + 1));
             var option2 = $("<button>").text(possibleAnswers[indexCategorySelected][i][1]);
-            option2.addClass("col-3 col-lg-3 d-inline btn btn-outline-primary");
+            option2.addClass("col-xl-3 col-lg-6 col-md-12 col-sm-12 col-12 d-inline btn btn-outline-primary");
             option2.attr("id", (i + 1));
             var option3 = $("<button>").text(possibleAnswers[indexCategorySelected][i][2]);
-            option3.addClass("col-3 col-lg-3 d-inline btn btn-outline-primary");
+            option3.addClass("col-xl-3 col-lg-6 col-md-12 col-sm-12 col-12 d-inline btn btn-outline-primary");
             option3.attr("id", (i + 1));
             var option4 = $("<button>").text(possibleAnswers[indexCategorySelected][i][3]);
-            option4.addClass("col-3 col-lg-3 d-inline btn btn-outline-primary");
+            option4.addClass("col-xl-3 col-lg-6 col-md-12 col-sm-12 col-12 d-inline btn btn-outline-primary");
             option4.attr("id", (i + 1));
 
             optionsDiv.append(option1);

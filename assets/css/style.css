@@ -50,6 +50,10 @@ Trivia Game CSS
     font-size: 25px;
 }
 
+.btn.btn-secondary {
+    margin: 10px 0px;
+}
+
 /*
 Ends Trivia Game CSS
 */
